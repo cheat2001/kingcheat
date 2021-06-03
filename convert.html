@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+    <title></title>
+    <link rel="stylesheet" href="CSS.css">
+    <style media="screen">
+    body{
+      margin: 0;
+      padding: 0;
+    }
+    .container{
+      background: green;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%,-50%);
+      width: 500px;
+      height: 700px;
+      border-radius: 20px;
+      box-shadow: 0 0 140px green;
+    }
+    input,button{
+      display: block;
+      margin: 10px auto;
+    }
+    input{
+      font-size: 30px;
+      outline: none;
+      border: 2px solid red;
+      transition: all 1s;
+      background:#313131;
+      color: white;
+      border-radius: 10px;
+      box-shadow: 0 0 20px red;
+    }
+    button{
+      font-size: 25px;
+      border-radius: 20px;
+      outline: none;
+      cursor: pointer;
+      box-shadow: 0 0 10px blue;
+    }
+    input:focus{
+    border: 2px solid blue;
+      box-shadow: 0 0 20px blue;
+    }
+    button:hover{
+      background: blue;
+    }
+    h1{
+      text-align: center;
+      color: white;
+      font-size: 40px;
+      text-shadow: 0 5px 10px black;
+    }
+    h2{
+      text-align: center;
+      margin: 0;
+      color:white;
+      text-shadow: 0 5px 10px black;
+    }
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Convert Number </h1>
+      <h2>Decimal</h2>
+    <input type="text" placeholder="Decimal" class="dec">
+    <button type="button" name="button" class="btndec">convert</button>
+    <h2>Binary</h2>
+    <input type="text" placeholder="Binary" class="bin">
+      <button type="button" name="button" class="btnbin">convert</button>
+      <h2>Octal</h2>
+    <input type="text" placeholder="Octal" class="oct">
+      <button type="button" name="button" class="btnoct">convert</button>
+      <h2>Hexadecimal</h2>
+    <input type="text" placeholder="Hexadecimal" class="hex">
+      <button type="button" name="button" class="btnhex">convert</button>
+ </div>
+<script type="text/javascript">
+const btndec=document.querySelector('.btndec');
+const btnbin=document.querySelector('.btnbin');
+const btnoct=document.querySelector('.btnoct');
+const btnhex=document.querySelector('.btnhex');
+const dec=document.querySelector('.dec');
+const bin=document.querySelector('.bin');
+const oct=document.querySelector('.oct');
+const hex=document.querySelector('.hex');
+
+btndec.addEventListener('click',fundec);
+
+function fundec(){
+       let get=dec.value;
+       let decnum=parseInt(get);
+       bin.value=decnum.toString(2);
+       oct.value=decnum.toString(8);
+       hex.value=decnum.toString(16);
+}
+
+btnbin.addEventListener('click',funbin);
+
+function funbin(){
+  let get=bin.value;
+  let binnum=parseInt(get,2);
+   dec.value=binnum.toString(10);
+   oct.value=binnum.toString(8);
+   hex.value=binnum.toString(16);
+}
+
+btnoct.addEventListener('click',funoct);
+
+function funoct(){
+  let get=oct.value;
+  let octnum=parseInt(get,8);
+  dec.value=octnum.toString(10);
+  bin.value=octnum.toString(2);
+  hex.value=octnum.toString(16);
+}
+
+btnhex.addEventListener('click',funhex);
+
+function funhex(){
+  let get=hex.value;
+  let hexnum=parseInt(get,16);
+  dec.value=hexnum.toString(10);
+  bin.value=hexnum.toString(2);
+  oct.value=hexnum.toString(8);
+}
+
+</script>
+  </body>
+</html>
